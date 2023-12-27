@@ -1,0 +1,62 @@
+.home-bg {
+  background-image: url(../../../assets/img/main.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.half-width {
+  width: 40vw;
+}
+
+.w-60 {
+  width: 60vw;
+}
+
+.h-90 {
+  height: 90vh;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+}
+
+#cards-container {
+  scroll-behavior: smooth;
+}
+
+#cards-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+#cards-container::-webkit-scrollbar-track {
+  background: #b4432e;
+  border-radius: 20px;
+}
+
+#cards-container::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid #b4432e;
+}
+
+.search {
+  height: 40px;
+  width: 40px;
+}
+
+.search-btn {
+  pointer-events: none;
+}
+
+.favorite-btn {
+  font-size: larger;
+}
+
+.fav {
+  height: 45px;
+  width: 45px;
+}

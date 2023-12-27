@@ -1,0 +1,36 @@
+.size-card {
+  width: 21.8rem;
+  height: 16rem;
+}
+
+.pokemon-cards {
+  background-color: #dc3545;
+  transition: 0.3s;
+  img {
+    transition: 0.3s;
+  }
+}
+
+.pokemon-cards:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+  translate: 0 5px;
+  background-color: #b4432e;
+  img {
+    transform: scale(1.04);
+  }
+}
+
+#favorites {
+  height: 40px;
+  width: 40px;
+  transition: 0.3s;
+}
+
+#favorites:hover {
+  transform: rotate(70deg) scale(1.2);
+}
+
+#favorites:active {
+  transform: scale(0.9);
+}

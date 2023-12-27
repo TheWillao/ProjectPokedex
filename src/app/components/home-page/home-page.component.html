@@ -1,0 +1,47 @@
+<main class="home-bg flex-column d-flex">
+  <div class="glass rounded-4 card ms-5 mt-5 me-5 w-60 h-75 align-self-start">
+    <div class="card-header p-3 text-center">
+      <h1>Pokédex - W Edition</h1>
+    </div>
+    <div
+      id="cards-container"
+      class="overflow-auto h-100 d-flex justify-content-between flex-column"
+    >
+      <app-cards
+        [pokemons]="filteredPokemons.length > 0 ? filteredPokemons : pokemons"
+      ></app-cards>
+    </div>
+  </div>
+  <div class="input-group mb-3 ms-5 mt-4 p-2 text-center w-60">
+    <button
+      class="input-group-text btn btn-danger shadow search-btn"
+      id="basic-addon1"
+    >
+      <img
+        class="search"
+        src="../../../assets/img/search.png"
+        alt="Ícone de pesquisar"
+      />
+    </button>
+
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Pesquisar Pokémon"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+      [(ngModel)]="filter"
+      (keyup)="filterPokemons()"
+    />
+    <button
+      class="input-group-text me-2 btn btn-primary shadow text-light d-flex gap-2 favorite-btn"
+      (click)="openFavoritesModal()"
+    >
+      <img
+        class="fav"
+        src="../../../assets/img/favs.png"
+        alt="Ícone de mostrar os favoritos"
+      />Favoritos
+    </button>
+  </div>
+</main>
