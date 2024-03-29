@@ -55,7 +55,6 @@ export class HomePageComponent {
       0,
       this.loadedPokemons.length + 15
     );
-    console.log(this.loadedPokemons);
   }
 
   openFavoritesModal() {
