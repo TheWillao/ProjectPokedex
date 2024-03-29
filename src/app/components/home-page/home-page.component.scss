@@ -60,3 +60,19 @@
   height: 45px;
   width: 45px;
 }
+
+.load-more {
+}
+
+@media (max-width: 900px) {
+  .input-group {
+    width: 90vw;
+    margin-left: 20px !important;
+    margin-top: 10px !important;
+  }
+  .glass {
+    margin-left: 20px !important;
+    width: 90vw;
+    height: 80vh !important;
+  }
+}

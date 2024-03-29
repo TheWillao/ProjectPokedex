@@ -14,6 +14,6 @@ export class PokemonCardComponent {
   constructor(private service: PokedexService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.pokemon = this.service.getInStorage('Pokemón');
+    this.pokemon = this.service.getInStorage();
   }
 }

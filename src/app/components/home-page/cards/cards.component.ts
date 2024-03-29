@@ -22,7 +22,7 @@ export class CardsComponent {
   }
 
   showDetails(i: number) {
-    this.service.setInStorage('Pokemón', this.pokemons[i]);
+    this.service.setInStorage(this.pokemons[i]);
     this.router.navigate(['/pokemon', i]);
   }
 }

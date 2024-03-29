@@ -34,3 +34,12 @@
 #favorites:active {
   transform: scale(0.9);
 }
+
+@media (max-width: 585px) {
+  .card-body section {
+    margin: 0 !important;
+  }
+  .pokemon-img {
+    margin: 0 !important;
+  }
+}
