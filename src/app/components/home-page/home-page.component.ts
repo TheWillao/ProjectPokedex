@@ -12,6 +12,7 @@ import { Pokemon } from '../interfaces';
 export class HomePageComponent {
   filter: string = '';
   pokemons: Pokemon[] = [];
+  loadedPokemons: Pokemon[] = [];
   filteredPokemons: any = '';
 
   constructor(
@@ -33,6 +34,9 @@ export class HomePageComponent {
               this.pokemons.map((pokemon: any) => {
                 pokemon.favorite = false;
               });
+              if (this.pokemons.length === 151) {
+                this.loadedPokemons = this.pokemons.slice(0, 15);
+              }
             },
             error: (err) => {
               alert(err);
@@ -44,6 +48,14 @@ export class HomePageComponent {
         alert(err);
       },
     });
+  }
+
+  loadMorePokemons() {
+    this.loadedPokemons = this.pokemons.slice(
+      0,
+      this.loadedPokemons.length + 15
+    );
+    console.log(this.loadedPokemons);
   }
 
   openFavoritesModal() {

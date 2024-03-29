@@ -8,7 +8,6 @@ import { Pokemon } from './interfaces';
 })
 export class PokedexService {
   private readonly API = 'https://pokeapi.co/api/v2/pokemon';
-  private readonly DB = 'http://localhost:3000/pokemons';
 
   constructor(private http: HttpClient) {} // http do tipo HttpClient (módulo próprio do Angular): Para capturar APIs.
 
@@ -20,11 +19,11 @@ export class PokedexService {
     return this.http.get(`${this.API}/${pokemon}`);
   }
 
-  setInStorage(name: string, pokemon: Pokemon) {
+  setInStorage(pokemon: Pokemon) {
     localStorage.setItem('Pokémons', JSON.stringify(pokemon));
   }
 
-  getInStorage(name: string) {
+  getInStorage() {
     if (localStorage.getItem('Pokémons')) {
       return JSON.parse(localStorage.getItem('Pokémons')!);
     }

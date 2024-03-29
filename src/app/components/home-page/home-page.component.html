@@ -8,8 +8,22 @@
       class="overflow-auto h-100 d-flex justify-content-between flex-column"
     >
       <app-cards
-        [pokemons]="filteredPokemons.length > 0 ? filteredPokemons : pokemons"
+        [pokemons]="
+          filteredPokemons.length > 0 ? filteredPokemons : loadedPokemons
+        "
       ></app-cards>
+      <div class="d-flex justify-content-center">
+        <button
+          *ngIf="loadedPokemons.length !== 151"
+          class="input-group-text me-2 mb-3 btn btn-primary shadow text-light w-25 load-more"
+          (click)="loadMorePokemons()"
+        >
+          Carregar mais Pokémons
+        </button>
+        <p *ngIf="loadedPokemons.length === 151">
+          <strong>Não há mais Pokémons nesta geração.</strong>
+        </p>
+      </div>
     </div>
   </div>
   <div class="input-group mb-3 ms-5 mt-4 p-2 text-center w-60">

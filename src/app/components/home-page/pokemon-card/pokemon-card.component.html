@@ -8,50 +8,51 @@
         class="d-flex flex-column justify-content-center align-items-center h-100 w-100"
       >
         <div
-          class="pokemon-card w-75 h-100 rounded-4 m-3 d-flex justify-content-between"
+          class="sides left-side"
+          ngClass="{{ pokemon.types[0].type.name }}-bg"
+        ></div>
+        <div
+          class="sides right-side"
+          ngClass="{{
+            pokemon.types[1]
+              ? pokemon.types[1].type.name
+              : pokemon.types[0].type.name
+          }}-bg"
+        ></div>
+        <div
+          class="pokemon-card w-50 h-75 rounded-4 d-flex align-items-center mb-5"
         >
-          <div
-            class="left-side w-100 h-100 d-flex justify-content-center align-items-center"
-            ngClass="{{ pokemon.types[0].type.name }}-bg"
-          >
-            <div class="text-light stats text-shadow">
-              <h5><strong>HP: </strong>{{ pokemon.stats[0].base_stat }}</h5>
-              <h5><strong>ATK: </strong>{{ pokemon.stats[1].base_stat }}</h5>
-              <h5><strong>DEF: </strong>{{ pokemon.stats[2].base_stat }}</h5>
-              <h5><strong>SPD: </strong>{{ pokemon.stats[5].base_stat }}</h5>
-              <div class="mt-4">
-                <div
-                  class="container text-dark rounded-3 text-center shadow"
-                  ngClass="{{ pokemon.types[0].type.name }}"
-                >
-                  <p class="m-2">{{ pokemon.types[0].type.name }}</p>
-                </div>
-                <div
-                  class="container text-dark rounded-3 text-center shadow"
-                  ngClass="{{ pokemon.types[1].type.name }}"
-                  *ngIf="pokemon.types[1]"
-                >
-                  <p class="m-2">{{ pokemon.types[1].type.name }}</p>
-                </div>
+          <div class="text-light stats text-shadow">
+            <h3><strong>HP: </strong>{{ pokemon.stats[0].base_stat }}</h3>
+            <h3><strong>ATK: </strong>{{ pokemon.stats[1].base_stat }}</h3>
+            <h3><strong>DEF: </strong>{{ pokemon.stats[2].base_stat }}</h3>
+            <h3><strong>SPD: </strong>{{ pokemon.stats[5].base_stat }}</h3>
+            <div class="mt-4">
+              <div
+                class="container text-dark rounded-3 text-center shadow"
+                ngClass="{{ pokemon.types[0].type.name }}"
+              >
+                <p class="m-2">{{ pokemon.types[0].type.name }}</p>
+              </div>
+              <div
+                class="container text-dark rounded-3 text-center shadow"
+                ngClass="{{ pokemon.types[1].type.name }}"
+                *ngIf="pokemon.types[1]"
+              >
+                <p class="m-2">{{ pokemon.types[1].type.name }}</p>
               </div>
             </div>
           </div>
-          <div
-            class="right-side w-100 h-100 d-flex justify-content-center align-items-center"
-            ngClass="{{
-              pokemon.types[1]
-                ? pokemon.types[1].type.name
-                : pokemon.types[0].type.name
-            }}-bg"
-          >
-            <img
-              class="w-75"
-              alt="Imagem do Pokémon"
-              [src]="pokemon.sprites.front_default"
-            />
-          </div>
+          <img
+            class="w-75"
+            alt="Imagem do Pokémon"
+            [src]="pokemon.sprites.front_default"
+            style="z-index: 2"
+          />
         </div>
-        <h2 class="mb-3">{{ pokemon.name.toUpperCase() }}</h2>
+        <h2 class="mb-3" style="z-index: 2">
+          {{ pokemon.name.toUpperCase() }}
+        </h2>
       </div>
     </div>
   </div>

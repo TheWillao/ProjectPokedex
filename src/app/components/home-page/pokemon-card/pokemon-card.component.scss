@@ -18,45 +18,74 @@
 }
 
 .pokemon-card {
-  transition: 0.3s;
-  gap: 10px;
   img {
     transition: 0.3s;
   }
   .stats {
+    z-index: 2;
     transition: 0.3s;
   }
-  .stats h5 {
+  .stats h3 {
     color: black;
     text-shadow: none;
-  }
-  .left-side {
-    border-radius: 16px 0 0 16px;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-  }
-  .right-side {
-    border-radius: 0 16px 16px 0;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    transition: 0.3s;
   }
 }
 
 .pokemon-card:hover {
-  cursor: pointer;
-  box-shadow: 0 0 15px 20px #365f91;
-  transform: scale(0.98);
-}
-
-.left-side:hover {
-  .stats {
-    transform: scale(1.05);
+  img {
+    transform: scale(1.1);
   }
 }
 
-.right-side:hover {
-  img {
-    transform: scale(1.05);
+.sides {
+  width: 100%;
+  height: 87.3%;
+  top: 12.5%;
+  z-index: 1;
+  position: absolute;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 16px;
+}
+.left-side {
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+.right-side {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.pokemon-card:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .main-card {
+    margin-left: 20px !important;
+    width: 90vw;
+    height: 90vh !important;
+  }
+  .sides {
+    top: 10.5%;
+    height: 89.5%;
+  }
+}
+
+@media (max-width: 470px) {
+  .card-header h1 {
+    font-size: 28px;
+  }
+  .sides {
+    top: 10%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 453px) {
+  .card-header h1 {
+    font-size: 25px;
+  }
+  .sides {
+    top: 9%;
+    height: 91%;
   }
 }
