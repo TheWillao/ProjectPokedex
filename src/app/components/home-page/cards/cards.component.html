@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap" *ngIf="pokemons.length > 0">
   <div
-    class="pokemon-cards card text-light size-card ms-3 m-2"
+    class="pokemon-cards card text-light size-card ms-3 m-2 position-relative"
     *ngFor="let pokemon of pokemons; let i = index"
   >
     <div class="card-header text-center" (click)="showDetails(i)">
@@ -28,12 +28,16 @@
           id="favorites"
           alt="Ícone de Favoritos"
           (click)="favoritePokemon(i)"
+          class="position-absolute"
+          style="z-index: 999"
         />
       </section>
       <img
+        [title]="'Clique para ver mais detalhes do ' + pokemon.name"
         [src]="pokemon.sprites.front_default"
         alt="Imagem do Pokémon {{ pokemon.name }}"
-        class="ms-5 pokemon-img"
+        class="ms-3 pokemon-img"
+        (click)="showDetails(i)"
       />
       <p class="card-text"></p>
     </div>

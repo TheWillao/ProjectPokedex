@@ -14,13 +14,21 @@
       ></app-cards>
       <div class="d-flex justify-content-center">
         <button
-          *ngIf="loadedPokemons.length !== 151"
+          *ngIf="
+            loadedPokemons.length < 151 &&
+            filteredPokemons.length < 151 &&
+            filter.length === 0
+          "
           class="input-group-text me-2 mb-3 btn btn-primary shadow text-light w-25 load-more"
           (click)="loadMorePokemons()"
         >
           Carregar mais Pokémons
         </button>
-        <p *ngIf="loadedPokemons.length === 151">
+        <p
+          *ngIf="
+            loadedPokemons.length === 151 || filteredPokemons.length === 151
+          "
+        >
           <strong>Não há mais Pokémons nesta geração.</strong>
         </p>
       </div>
@@ -39,7 +47,7 @@
     </button>
 
     <input
-      type="search"
+      type="text"
       class="form-control"
       placeholder="Pesquisar Pokémon"
       aria-label="Username"
